@@ -106,9 +106,9 @@ const ev = new EmailValidation({ whitelist: ['gmail.com'] })
 
 ```
 
-You can check some examples in `example.js`
+You can check some examples in [`example.js`](https://github.com/romainsimon/emailvalid/blob/master/example.js)
 
-# Result
+## Result
 
 Email Validation will output an object with the following information:
 
@@ -143,14 +143,14 @@ console.log(result)
 ```
 
 
-### Contributions
+## Contributions
 
 If you need a simple way to add domains to the list, just run `yarn add-domain [DOMAIN] [CATEGORY]`
 
 (for example `yarn add-domain gmail.com freemail`) and make a Pull Request :)
 
 
-### Licence
+## Licence
 
 MIT License
 
