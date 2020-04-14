@@ -1,0 +1,37 @@
+{
+  "name": "emailvalid",
+  "version": "1.0.0",
+  "description": "Email validation with more than 10K disposable/temporary email domains",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && nyc --reporter=html --reporter=text mocha \"./{,!(node_modules)/**/}*.spec.js\"",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "lint:fix": "standard --fix",
+    "add-domain": "node ./scripts/add",
+    "clean": "node ./scripts/clean"
+  },
+  "author": "Romain Simon <contact@romainsimon.net>",
+  "license": "MIT",
+  "keywords": [
+    "email",
+    "validation",
+    "disposable",
+    "throwaway",
+    "freemail",
+    "temporary"
+  ],
+  "standard": {
+    "env": {
+      "mocha": true
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.2",
+    "mocha": "^5.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^12.0.2",
+    "standard": "^12.0.1"
+  }
+}
