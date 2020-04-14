@@ -162,7 +162,7 @@ console.log(result)
 //   email: 'random@gmail.com',
 //   domain: 'gmail.com'
 //   valid: false,
-//   errors: ['disposable']
+//   errors: ['freemail']
 // {
 
 ```
