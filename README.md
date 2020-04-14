@@ -71,7 +71,8 @@ console.log(`${result2.email} validity: ${result2.valid}`)
 
 ```
 
-This will return an validation object
+The output will be an object with some information on the validity ([see result section](#result))
+
 
 ### Configuration
 
@@ -131,6 +132,7 @@ ev.setOptions({ allowFreemail: true })
 
 ```
 
+
 ## Result
 
 Email Validation will output an object with the following information:
@@ -165,18 +167,15 @@ console.log(result)
 
 ```
 
-
 ## Contributions
 
 If you need a simple way to add domains to the list, just run `yarn add-domain [DOMAIN] [CATEGORY]`
 
-(for example `yarn add-domain gmail.com freemail`) and make a Pull Request :)
+For example `yarn add-domain gmail.com freemail`
+
+Then feel free to create Pull Requests :)
 
 
 ## Licence
 
-MIT License
-
-The list used for free mail an disposable email domains has been compiled from different sources completed manually.
-
-Feel free to use this, and make Pull Requests to add more domains so this is maintained.
+[MIT License](https://github.com/romainsimon/emailvalid/blob/master/LICENSE)
