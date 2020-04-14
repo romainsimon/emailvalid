@@ -8,7 +8,7 @@ const validCategories = [ 'disposable', 'freemail' ]
 const addDomain = () => {
   if (process.argv.length < 4) {
     throw new Error('This script should be ran: yarn run add-domain gmail.com freemail')
-  } else if (!validCategories.includes(process.argv[3])) {
+  } else if (!validCategories.includes(process.argv[2])) {
     throw new Error(`Valid categories are: ${validCategories.join(', ')}`)
   }
 
