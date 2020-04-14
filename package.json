@@ -6,6 +6,7 @@
   "scripts": {
     "test": "standard && nyc --reporter=html --reporter=text mocha \"./{,!(node_modules)/**/}*.spec.js\"",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "standard",
     "lint:fix": "standard --fix",
     "add-domain": "node ./scripts/add",
     "clean": "node ./scripts/clean"

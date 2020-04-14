@@ -15,8 +15,8 @@ const cleanDomains = domains => {
   const cleaned = {}
 
   Object.keys(domains).sort().forEach(domain => {
-    cleaned[domain.trim().toLowerCase()] = domains[domain];
-  });
+    cleaned[domain.trim().toLowerCase()] = domains[domain]
+  })
 
   fs.writeFile('./domains.json', JSON.stringify(cleaned, null, 2), err => {
     if (err) throw err
