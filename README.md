@@ -1,7 +1,7 @@
 <h1 align="center">Email Validation</h1>
 
 Email Validation is a library that validates email addresses and checks againts more than 10K domains used for disposable emails<br />
-If you want to block disposable email addresses at signup, or if you are a B2B company and want only professional email adresses to signup, this is the solution for you :)
+If you want to **block disposable email addresses at signup**, or if you are a B2B company and want **only professional email adresses**, this is the solution for you :)<br />
 <br />
 
 <div align="center">
@@ -18,6 +18,15 @@ If you want to block disposable email addresses at signup, or if you are a B2B c
   </a>
 </div>
 
+<br />
+
+This library does multiple verifications:
+- Email format validation
+- Free email address (@gmail.com, @hotmail.com, @protonmail.com, ...)
+- Disposable email address (@maildrop.cc, @fakemail.net, @trashmail.com, ...)
+
+Email Validation has **0 dependency, 100% coverage, and is [fully configurable](#configuration)**.
+
 
 ## Table of Contents
 
@@ -25,6 +34,7 @@ If you want to block disposable email addresses at signup, or if you are a B2B c
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [Result](#result)
+- [Contributions](#contributions)
 - [License](#license)
 
 ## Installation
@@ -73,7 +83,7 @@ Email Validation can be configured with more advanced options :
 - `allowDisposable` (Boolean) Allow disposable emails such as @trashmail.com, ... (default is false)
 
 
-This a allows a more advanced usage.
+You can for example choose to allow freemails, and add a domain baddomain.com in addition to the preconfigured list
 
 Advanced configuration example
 
@@ -100,7 +110,7 @@ You can check some examples in `example.js`
 
 # Result
 
-Email Validation will result an object with different infos:
+Email Validation will output an object with the following information:
 
 - `email` (String) Email in a standardized format (trimed and lowercased)
 - `domain` (String) Domain from the email
@@ -132,6 +142,14 @@ console.log(result)
 
 ```
 
+
+### Contributions
+
+If you need a simple way to add domains to the list, just run `yarn add-domain [DOMAIN] [CATEGORY]`
+
+(for example `yarn add-domain gmail.com freemail`) and make a Pull Request :)
+
+
 ### Licence
 
 MIT License
@@ -139,8 +157,3 @@ MIT License
 The list used for free mail an disposable email domains has been compiled from different sources completed manually.
 
 Feel free to use this, and make Pull Requests to add more domains so this is maintained.
-
-
-### Contributions
-
-If you need a simple way to add domains to the list, just run `yarn add-domain [DOMAIN] [CATEGORY]` (for example `yarn add-domain gmail.com freemail`) and make a Pull Request :)
