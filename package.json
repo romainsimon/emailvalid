@@ -1,6 +1,6 @@
 {
   "name": "emailvalid",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Email validation with more than 10K disposable/temporary email domains",
   "main": "index.js",
   "scripts": {
