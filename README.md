@@ -75,17 +75,16 @@ This will return an validation object
 
 ### Configuration
 
-Email Validation can be configured with more advanced options :
+Email Validation can be configured with more advanced options as an object:
 
-- `whitelist` (Array) Add some email domains you want to whitelist (default is [])
-- `blacklist` (Array) Add some email domains you want to blacklist (default is [])
-- `allowFreemail` (Boolean) Allow free emails such as @gmail.com, ... (default is false)
-- `allowDisposable` (Boolean) Allow disposable emails such as @trashmail.com, ... (default is false)
-
+- `whitelist` _(Array)_ Add some email domains you want to whitelist (default is [])
+- `blacklist` _(Array)_ Add some email domains you want to blacklist (default is [])
+- `allowFreemail` _(Boolean)_ Allow free emails such as @gmail.com, ... (default is false)
+- `allowDisposable` _(Boolean)_ Allow disposable emails such as @trashmail.com, ... (default is false)
 
 You can for example choose to allow freemails, and add a domain baddomain.com in addition to the preconfigured list
 
-Advanced configuration example
+#### Advanced configuration example
 
 ```javascript
 const EmailValidation = require('emailvalid')
@@ -108,14 +107,38 @@ const ev = new EmailValidation({ whitelist: ['gmail.com'] })
 
 You can check some examples in [`example.js`](https://github.com/romainsimon/emailvalid/blob/master/example.js)
 
+#### Updating options on the fly
+
+In case you need to update options after initialization, you can do it on the fly with different methods:
+
+- `whitelist` _(Function)_ Add a new domain to the whitelist
+- `blacklist` _(Function)_ Add a new domain to the blacklist
+- `setOptions` _(Function)_ Changes the options
+
+
+```javascript
+const EmailValidation = require('emailvalid')
+const ev = new EmailValidation()
+
+// This adds a new domain as invalid
+ev.blacklist('baddomain.com')
+
+// This marks a domain as valid
+ev.whitelist('gooddomain.com')
+
+// This changes options to allow freemails
+ev.setOptions({ allowFreemail: true })
+
+```
+
 ## Result
 
 Email Validation will output an object with the following information:
 
-- `email` (String) Email in a standardized format (trimed and lowercased)
-- `domain` (String) Domain from the email
-- `valid` (Boolean) Is the email address valid?
-- `errors` (Array) List of errors if any
+- `email` _(String)_ Email in a standardized format (trimed and lowercased)
+- `domain` _(String)_ Domain from the email
+- `valid` _(Boolean)_ Is the email address valid?
+- `errors` _(Array)_ List of errors if any
 
 Errors contains strings and can be one of :
 - `invalid` Email is not present of format is invalid
@@ -123,7 +146,7 @@ Errors contains strings and can be one of :
 - `freemail` Email is a free mail (and not whitelisted or allowed in parameters)
 - `blacklisted` Email is blacklisted in parameters
 
-Example :
+#### Example :
 
 ```javascript
 const EmailValidation = require('emailvalid')
