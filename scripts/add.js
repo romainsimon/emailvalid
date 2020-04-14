@@ -12,8 +12,8 @@ const addDomain = () => {
     throw new Error(`Valid categories are: ${validCategories.join(', ')}`)
   }
 
-  const domain = process.argv[2].trim().toLowerCase()
-  const category = process.argv[3]
+  const category = process.argv[2].trim().toLowerCase()
+  const domain = process.argv[3].trim().toLowerCase()
   const domains = getDomains()
 
   if (domains[domain]) {

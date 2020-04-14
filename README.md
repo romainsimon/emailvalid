@@ -171,7 +171,7 @@ console.log(result)
 
 If you need a simple way to add domains to the list, just run `yarn add-domain [DOMAIN] [CATEGORY]`
 
-For example `yarn add-domain gmail.com freemail`
+For example `yarn add-domain freemail gmail.com`
 
 Then feel free to create Pull Requests :)
 

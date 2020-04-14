@@ -8,8 +8,10 @@ For example :
 - Added `supere.ml` (disposable) used by Dropmail https://dropmail.me
 - Added `angelic.com` (freemail) used by Mail.com https://signup.mail.com
 
+Please Keep the list sorted :)
+
 PS: Simple way to add domains while keeping the list sorted :
 
-`yarn add-domain [DOMAIN] [CATEGORY]`
+`yarn add-domain [CATEGORY] [DOMAIN]`
 
-(for example `yarn add-domain gmail.com freemail`)
+(for example `yarn add-domain freemail gmail.com`)
