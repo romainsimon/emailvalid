@@ -24,6 +24,7 @@ This library does multiple verifications:
 - Email format validation
 - Free email address (@gmail.com, @hotmail.com, @protonmail.com, ...)
 - Disposable email address (@maildrop.cc, @fakemail.net, @trashmail.com, ...)
+- Possible typos in popular email domains
 
 Email Validation has **0 dependency, 100% coverage, and is [fully configurable](#configuration)**.
 
@@ -68,6 +69,10 @@ console.log(`${result.email} validity: ${result.valid}`)
 // This email will be invalid because it is a disposable email
 const result2 = ev.check('iamadisposableemail@yopmail.com')
 console.log(`${result2.email} validity: ${result2.valid}`)
+
+// You can also check for possible typos
+const result3 = ev.check('john@gmil.com')
+if (result3.typo) console.log(`Did you mean ${result3.typo}?`)
 
 ```
 
@@ -141,6 +146,7 @@ Email Validation will output an object with the following information:
 - `domain` _(String)_ Domain from the email
 - `valid` _(Boolean)_ Is the email address valid?
 - `errors` _(Array)_ List of errors if any
+- `typo` _(String)_ Is there any possible typo in the email?
 
 Errors contains strings and can be one of :
 - `invalid` Email is not present of format is invalid
@@ -162,7 +168,8 @@ console.log(result)
 //   email: 'random@gmail.com',
 //   domain: 'gmail.com'
 //   valid: false,
-//   errors: ['freemail']
+//   errors: ['freemail'],
+//   typo: null
 // {
 
 ```

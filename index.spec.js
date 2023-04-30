@@ -43,6 +43,18 @@ describe('EmailValidation', () => {
       expect(result.email).eq('roger@testemail.com')
       expect(result.domain).eq('testemail.com')
     })
+    it('should not suggest possible typos for gmail.com', () => {
+      const result = ev.check('roger@gmail.com')
+      expect(result.typo).eq(null)
+    })
+    it('should suggest possible typos for gmal.com', () => {
+      const result = ev.check('roger@gmal.com')
+      expect(result.typo).eq('roger@gmail.com')
+    })
+    it('should suggest possible typos for gnaul.com', () => {
+      const result = ev.check('roger@gnaul.com')
+      expect(result.typo).eq('roger@gmail.com')
+    })
   })
   describe('Detection of disposable and free emails', () => {
     const ev = new EmailValidation()

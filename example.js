@@ -13,6 +13,7 @@ function displayInfos (result) {
     if (result.errors.includes('disposable')) s += `${result.domain} is disposable domain`
     if (result.errors.includes('freemail')) s += `${result.domain} is a free domain`
     if (result.errors.includes('blacklist')) s += `you just blacklisted it`
+    if (result.typo) s += `Did you mean ${result.typo}?`
   }
   console.log(s)
 }
@@ -39,6 +40,11 @@ displayInfos(
 
 displayInfos(
   ev.check('nothing@fakemailgenerator.com')
+)
+
+// If check for possible typos
+displayInfos(
+  ev.check('john@gmal.com')
 )
 
 // You can easily add some blacklisted domains on the fly if needed
