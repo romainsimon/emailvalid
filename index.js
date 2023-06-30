@@ -44,6 +44,10 @@ class EmailValidation {
       type === 'blacklist' && result.errors.push(type)
     } else {
       let smallestDistance = result.domain.length
+      const match = /^(.+?)\.([^.]+)$/.exec(result.domain);
+      if (match) {
+        smallestDistance = match[1].length;
+      }
       for (const domain of popularDomains) {
         const distance = levenstein(domain, result.domain)
         if (distance > 0 && distance < maxDistance && distance < smallestDistance) {
