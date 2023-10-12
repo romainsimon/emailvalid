@@ -181,4 +181,21 @@ describe('EmailValidation', () => {
       expect(result.valid).eq(true)
     })
   })
+  describe('Default validation should be configurable', () => {
+    const ev = new EmailValidation()
+    it('should say domain random.com is invalid because default validation is not set to accept, normally random.com should have been accepted', () => {
+      ev.setOptions({ defaultType: 'invalid' })
+      const result = ev.check('random@random.com')
+      expect(result).to.be.an('object')
+      expect(result.valid).eq(false)
+      expect(result.errors[0]).eq('invalid')
+    })
+    it('should say domain random.com is valid because random.com has been whitelisted despite of default validation is not set to accept', () => {
+      ev.setOptions({ defaultType: 'invalid', whitelist:['random.com'] })
+      const result = ev.check('random@random.com')
+      expect(result).to.be.an('object')
+      expect(result.valid).eq(true)
+    })
+  })
+
 })

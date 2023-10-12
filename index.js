@@ -12,7 +12,8 @@ const defaultOptions = {
   whitelist: [],
   blacklist: [],
   allowFreemail: false,
-  allowDisposable: false
+  allowDisposable: false,
+  defaultType: 'valid'
 }
 
 class EmailValidation {
@@ -37,11 +38,14 @@ class EmailValidation {
     result.email = email.trim().toLowerCase()
     result.domain = result.email.split('@').pop()
 
+    var whitelisted = false;
+
     const type = this.domains[result.domain]
     if (type) {
       type === 'disposable' && !this.options.allowDisposable && result.errors.push(type)
       type === 'freemail' && !this.options.allowFreemail && result.errors.push(type)
       type === 'blacklist' && result.errors.push(type)
+      type === 'whitelist' && (whitelisted = true)
     } else {
       let smallestDistance = result.domain.length
       for (const domain of popularDomains) {
@@ -54,7 +58,13 @@ class EmailValidation {
       }
     }
 
-    if (!result.errors.length) result.valid = true
+    if (!result.errors.length) {
+      if(whitelisted == true | this.options.defaultType === 'valid') {
+        result.valid = true
+      } else {
+        result.errors.push(this.options.defaultType)
+      }
+    }
     return result
   }
 

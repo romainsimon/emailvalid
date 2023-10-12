@@ -87,6 +87,7 @@ Email Validation can be configured with more advanced options as an object:
 - `blacklist` _(Array)_ Add some email domains you want to blacklist (default is [])
 - `allowFreemail` _(Boolean)_ Allow free emails such as @gmail.com, ... (default is false)
 - `allowDisposable` _(Boolean)_ Allow disposable emails such as @trashmail.com, ... (default is false)
+- `defaultType` _(String)_ Define the default behavior when a domain didn't match any rules, you can choose between valid or invalid (default is valid)
 
 You can for example choose to allow freemails, and add a domain baddomain.com in addition to the preconfigured list
 
@@ -99,7 +100,7 @@ const ev = new EmailValidation({ allowFreemail: true, blacklist: ['baddomain.com
 // This one should have result.valid = true because we allowed free mails such as gmail.com
 ev.check('random@gmail.com')
 
-// But this one is blacklisted now 
+// But this one is blacklisted now
 ev.check('paul@baddomain.com')
 
 ```
@@ -108,6 +109,13 @@ Or if you want to disallow all free mails, except gmail.com :
 
 ```javascript
 const ev = new EmailValidation({ whitelist: ['gmail.com'] })
+
+```
+
+Or if you want to only accept one single domain and disallow anything else:
+
+```javascript
+const ev = new EmailValidation({ whitelist: ['random.com'], defaultType: 'invalid' })
 
 ```
 
