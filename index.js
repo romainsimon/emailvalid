@@ -38,7 +38,7 @@ class EmailValidation {
     result.email = email.trim().toLowerCase()
     result.domain = result.email.split('@').pop()
 
-    var whitelisted = false;
+    var whitelisted = false
 
     const type = this.domains[result.domain]
     if (type) {
@@ -59,7 +59,7 @@ class EmailValidation {
     }
 
     if (!result.errors.length) {
-      if(whitelisted == true | this.options.defaultType === 'valid') {
+      if (whitelisted === true | this.options.defaultType === 'valid') {
         result.valid = true
       } else {
         result.errors.push(this.options.defaultType)
